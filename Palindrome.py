@@ -8,8 +8,9 @@ def palinTest():
     print('"' + simple + '"' + " is a palindrome.")
     return
 
-palinTest()
-cont = input("Run again? (y/n): ")
-while cont == "y":
+if __name__ == "__main__":
     palinTest()
     cont = input("Run again? (y/n): ")
+    while cont == "y":
+        palinTest()
+        cont = input("Run again? (y/n): ")

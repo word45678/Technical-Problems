@@ -17,7 +17,8 @@ class LList:
         temp = self.head #this gives us an extra space to iterate through the list, initialized as the head of the list
         while temp != None: #this allows us to use the extra space 'temp' to iterate through the list without actually affecting the list and stops it when 'temp' points to the end of the list
             output += str(temp.data) #this appends the data stored in the currently iterated node to our output text string
-            output += " -> " #this makes a nice little arrow between the elements of the list
+            if temp.next_node != None: #this makes sure we don't point an arrow to null at the end of the list
+                output += " -> " #this makes a nice little arrow between the elements of the list
             temp  = temp.next_node #this is actually the next step in the iteration, pushing our 'temp' pointer further down the list
         return output #this returns our concatenated string of all of the data found in the linked list
     
@@ -32,12 +33,13 @@ class LList:
         self.head = prev #and this sets the node just before NULL at the end of the list to the new head of the list
         #imagine if you will a set of dominoes, each node is a domino and the act of falling over is the orientation of the domino going from -> to <-, and that's essentially our process, where after all of the dominoes have fallen we just proclaim to the world "that last domino is actually the first domino now!" and thus the list is reversed
 
-data = input("Please enter a comma separated list of data: ")
-data = data.split(",")#this reads the user input into a list of items we can iterate through and push to the linked list
-foo = LList() #these lists work with any data in any combination, it's great
-for i in range(len(data)): #we can't just push the whole list at once, because then the list will be added as the data on one node, not separate nodes, more functionality coming soon :)
-    foo.push(data[i])
-print(foo) #remember that __str__ function we made earlier? isn't this convenient?
-foo.reverse()
-print(foo)
+if __name__ == "__main__": #this runs the main code properly
+    data = input("Please enter a comma separated list of data: ")
+    data = data.split(",")#this reads the user input into a list of items we can iterate through and push to the linked list
+    foo = LList() #these lists work with any data in any combination, it's great
+    for i in range(len(data)): #we can't just push the whole list at once, because then the list will be added as the data on one node, not separate nodes, more functionality coming soon :)
+        foo.push(data[i])
+    print(foo) #remember that __str__ function we made earlier? isn't this convenient?
+    foo.reverse()
+    print(foo)
 

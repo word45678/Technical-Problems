@@ -15,8 +15,9 @@ def twoSumValues(data,target):
         complements[data[i]] = i
 
 
-numbers = [2,7,11,15]
-value = 9
-print("Input: " + str(numbers) + " and Target: " + str(value))
-print("Sum component locations: " + str(twoSumIndices(numbers,value)))
-print("Sum component values: " + str(twoSumValues(numbers,value)))
+if __name__ == "__main__":
+    numbers = [2,7,11,15]
+    value = 9
+    print("Input: " + str(numbers) + " and Target: " + str(value))
+    print("Sum component locations: " + str(twoSumIndices(numbers,value)))
+    print("Sum component values: " + str(twoSumValues(numbers,value)))
